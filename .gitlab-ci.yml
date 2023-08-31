@@ -1,0 +1,39 @@
+stages:
+  - build
+  - test
+  - release
+
+build:
+  stage: build
+  tags:
+    - internal
+  only:
+    - master
+    - main
+
+  script:
+    - echo "Building..."
+    - echo "Building complete"
+
+test:
+  stage: test
+  tags:
+    - internal
+  only:
+    - master
+    - main
+
+  script:
+    - echo "Testing..."
+    - echo "Testing complete"
+
+release:
+  stage: release
+  tags:
+    - internal
+  only:
+    - master
+    - main
+
+  script:
+    - curl  -F firmware=@httpUpdateDemo.ino.generic.bin -F version=@version.h http://172.16.98.151:7070/firmware

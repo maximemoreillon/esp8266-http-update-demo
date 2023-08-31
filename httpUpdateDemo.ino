@@ -66,7 +66,7 @@ void update_error(int err) {
 
 
 void loop() {
-  // wait for WiFi connection
+  // wait for WiFi 
   if ((WiFiMulti.run() == WL_CONNECTED)) {
 
     WiFiClient client;
